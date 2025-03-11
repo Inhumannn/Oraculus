@@ -109,3 +109,12 @@ async function init() {
    displaySectionHoroscope(horoscope, current_index);
    displayHoroscope(horoscope[current_index]);
 });
+// Date du jour
+const date = new Date();
+const days = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+const dayName = days[date.getDay()];
+const day = date.getDate();
+const monthName = months[date.getMonth()];
+const year = date.getFullYear()
+document.querySelector('#datejour').innerHTML = `Horoscope du ${dayName} ${day} ${monthName} ${year}`;
