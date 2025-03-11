@@ -60,7 +60,18 @@ header li {
 .arrow a:first-child {
     border-right: 1px solid #BFBFBF;
 }
-
+.arrow-left,
+.arrow-right{
+    background: none;
+    border: 1px solid #BFBFBF;
+    color: #BFBFBF;
+    font-size: 35px;
+    &:hover {
+        font-size: 45px;
+        color: #909090;
+    }
+    
+}
 main {
     width: calc(100vw - 317px);
     left: 300px;
