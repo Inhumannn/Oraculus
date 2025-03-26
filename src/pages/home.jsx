@@ -1,8 +1,17 @@
-import Aside from "../components/aside"
-import Header from "../components/header"
-import Signes from "../components/signes"
+import Aside from "../components/aside";
+import Header from "../components/header";
+import Signes from "../components/signes";
+import useHoroscopeData from "../data/horoscope.jsx";
 
 function Home(){
+   const { horoscope, currentIndex} = useHoroscopeData();
+   const currentHoroscope = horoscope[currentIndex];
+
+   const today = new Date()
+   const day = today.getDate()
+   const month = today.getMonth()
+   const year = today.getFullYear()
+   const date = `${day}/0${month}/${year}`
    return (
       <>
          <Header />
@@ -10,20 +19,21 @@ function Home(){
             <Signes />
             <section className="grid grid-cols-2" >
                <div className="h-[507px] overflow-scroll">
-                  <p className="text-[16px] pt-[10%]">-- HOROSCOPE DU 28/09/2023</p>
-                  <h1 className="text-[42px] pb-[20px]">CAPRICORNE</h1>
+                  <p className="text-[16px] pt-[10%]">-- HOROSCOPE DU {date}</p>
+                  <h1 className="text-[42px] pb-[20px]">{currentHoroscope.signe}</h1>
                   <article>
-                     <p className="text-[14px] pb-[12px]">Amour : Ce mois-ci, les étoiles favorisent les relations pour les natifs du Capricorne. Vous serez plus ouvert et communicatif que d'habitude, ce qui facilitera la résolution des conflits et renforcera les liens avec votre partenaire. Si vous êtes célibataire, ne soyez pas surpris si de nouvelles personnes entrent dans votre vie. L'amour pourrait vous surprendre quand vous vous y attendrez le moins.</p>
-                     <p className="text-[14px] pb-[12px]">Travail : Votre détermination et votre éthique de travail seront récompensées ce mois-ci. Les opportunités professionnelles s'ouvriront à vous, mais n'oubliez pas de rester concentré sur vos objectifs à long terme. Une promotion ou une reconnaissance de vos compétences pourrait être à l'horizon.</p>
-                     <p className="text-[14px] pb-[12px]">Argent : La gestion financière sera essentielle ce mois-ci. Assurez-vous de suivre un budget strict et de prendre des décisions financières prudentes. Évitez les investissements risqués et concentrez-vous sur la stabilité à long terme.</p>
-                     <p className="text-[14px] pb-[12px]">Santé : Votre bien-être physique et mental est une priorité ce mois-ci. Prenez le temps de vous détendre et de vous ressourcer. La méditation, le yoga ou d'autres techniques de relaxation peuvent vous aider à maintenir un équilibre émotionnel. Veillez également à maintenir une alimentation équilibrée et à rester actif.</p>
-                     <p className="text-[14px] pb-[12px]">Famille et amis : Votre famille et vos amis joueront un rôle important dans votre vie ce mois-ci. Soyez attentif aux besoins de vos proches et passez du temps de qualité avec eux. Des moments chaleureux et mémorables sont à prévoir.</p>
-                     <p className="text-[14px] pb-[12px]">Conseil : Ce mois-ci, ne sous-estimez pas votre propre valeur. Vous avez les compétences et la détermination nécessaires pour atteindre vos objectifs. Soyez confiant et persévérant, et vous réussirez.</p>
+                  <p className="text-[14px] pb-[12px]">{currentHoroscope.date}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Amour : </span>{currentHoroscope.amour}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Travail : </span>{currentHoroscope.travail}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Argent : </span>{currentHoroscope.argent}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Santé : </span>{currentHoroscope.sante}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Famille et amis: </span>{currentHoroscope.famille}</p>
+                  <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Conseil : </span>{currentHoroscope.conseil}</p>
                   </article>
                </div>
             <Aside />
             </section>
-            <img src="/signes/capricorne.png" alt="" className="fixed top-[25%] right-[16%] w-[22%]"/>
+            <img src={currentHoroscope.image} alt="" className="fixed top-[25%] right-[16%] w-[22%]"/>
          </main>
       </>
    )
