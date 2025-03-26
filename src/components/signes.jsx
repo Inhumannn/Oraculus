@@ -1,8 +1,8 @@
 function Signes() {
   return (
-    <div>
-      <a className="" href="#">Sagittaire <span>22 NOV AU 21 DEC</span></a>
-      <a className="" href="#">Cancer <span>22 NOV AU 21 DEC</span></a>
+    <div className="flex flex-row gap-[40px] items-center pl-[25%]">
+      <a className="border-t border-[#BFBFBF]" href="#">Sagittaire <p>22 NOV AU 21 DEC</p></a>
+      <a className="border-t border-[#BFBFBF]" href="#">Cancer <p>22 NOV AU 21 DEC</p></a>
     </div>
   );
 }
