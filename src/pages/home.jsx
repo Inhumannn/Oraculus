@@ -23,6 +23,7 @@ function Home(){
                </div>
             <Aside />
             </section>
+            <img src="/signes/capricorne.png" alt="" className="fixed top-[25%] right-[16%] w-[22%]"/>
          </main>
       </>
    )
