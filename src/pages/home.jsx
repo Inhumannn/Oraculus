@@ -16,14 +16,14 @@ function Home(){
    return (
       <>
          <Header />
-         <main className="absolute left-[20%] pt-[2%] ">
+         <main className="absolute left-[20%] pt-[2%]">
             <Signes />
             <section className="grid grid-cols-2" >
-               <div className="h-[507px] overflow-scroll">
+               <div>
                   <p className="text-[16px] pt-[10%]">-- HOROSCOPE DU {currentDate}</p>
                   <h1 className="text-[42px] pb-[20px]">{signe}</h1>
-                  <article>
                   <p className="text-[14px] pb-[12px] text-[#908F8F]">Du {date}</p>
+                  <article className="h-[330px] overflow-scroll">
                   <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Amour : </span>{amour}</p>
                   <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Travail : </span>{travail}</p>
                   <p className="text-[14px] pb-[12px] text-[#908F8F]"><span className="text-black">Argent : </span>{argent}</p>
